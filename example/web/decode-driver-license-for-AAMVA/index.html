@@ -25,9 +25,11 @@
             let runtimeSettings = await scanner.getRuntimeSettings();
             runtimeSettings.barcodeFormatIds = Dynamsoft.DBR.EnumBarcodeFormat.BF_PDF417;
             runtimeSettings.binarizationModes = [2,0,0,0,0,0,0,0];
-            runtimeSettings.LocalizationModes = [2,8,0,0,0,0,0,0];
+            runtimeSettings.localizationModes = [2,8,0,0,0,0,0,0];
             runtimeSettings.deblurLevel = 2;
             await scanner.updateRuntimeSettings(runtimeSettings);
+            await scanner.setModeArgument("BinarizationModes", 0, "BlockSizeX", "30" ); 
+            await scanner.setModeArgument("BinarizationModes", 0, "BlockSizeY", "30" ); 
 
             scanner.onFrameRead = results => console.log(results);
             scanner.onUnduplicatedRead = txt => {
