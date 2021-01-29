@@ -45,6 +45,9 @@
             rs.timeout = 100000;
             await scanner.updateRuntimeSettings(rs);
 
+            await scanner.setModeArgument("BinarizationModes", 0, "BlockSizeX", "30" ); 
+            await scanner.setModeArgument("BinarizationModes", 0, "BlockSizeY", "30" ); 
+
             let ss = await scanner.getScanSettings();
             ss.intervalTime = 100;
             await scanner.updateScanSettings(ss);
