@@ -24,6 +24,7 @@
 
             let runtimeSettings = await scanner.getRuntimeSettings();
             runtimeSettings.barcodeFormatIds = Dynamsoft.DBR.EnumBarcodeFormat.BF_PDF417;
+            runtimeSettings.binarizationModes = [2,0,0,0,0,0,0,0];
             runtimeSettings.LocalizationModes = [2,8,0,0,0,0,0,0];
             runtimeSettings.deblurLevel = 2;
             await scanner.updateRuntimeSettings(runtimeSettings);
