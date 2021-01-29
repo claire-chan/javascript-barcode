@@ -24,6 +24,8 @@
     eruda.init();
     //Dynamsoft.DBR.BarcodeReader._bUseFullFeature = true; // Control of loading min wasm or full wasm.
     Dynamsoft.DBR.BarcodeReader._onLog = console.log;
+    Dynamsoft.DBR.BarcodeReader._bUseFullFeature = true;
+
 
     // scanner for decoding video
     let scanner = null;
