@@ -43,7 +43,9 @@
             }else{
                 scanner.bSaveOriCanvas = true;
             }
-            rs.localizationModes = [2,0,0,0,0,0,0,0];//16
+            rs.localizationModes = [2,8,0,0,0,0,0,0];
+            rs.binarizationModes = [2,0,0,0,0,0,0,0];
+            rs.deblurLevel = 2;
             rs.timeout = 100000;
             await scanner.updateRuntimeSettings(rs);
 
