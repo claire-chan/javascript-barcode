@@ -37,20 +37,23 @@
 
             scanner.bPlaySoundOnSuccessfulRead = true;
 
+            await scanner.updateRuntimeSettings("balance");
+
             let rs = await scanner.getRuntimeSettings();
             if(Dynamsoft.DBR.BarcodeReader._bUseFullFeature){
                 rs.intermediateResultTypes = 1; // the intermediateResult need a license to support it
             }else{
                 scanner.bSaveOriCanvas = true;
             }
-            rs.localizationModes = [2,8,0,0,0,0,0,0];
-            rs.binarizationModes = [2,0,0,0,0,0,0,0];
-            rs.deblurLevel = 2;
+            rs.barcodeFormatIds = Dynamsoft.DBR.EnumBarcodeFormat.BF_PDF417;
+            //rs.localizationModes = [2,8,0,0,0,0,0,0];
+            //rs.binarizationModes = [2,0,0,0,0,0,0,0];
+            //rs.deblurLevel = 2;
             rs.timeout = 100000;
             await scanner.updateRuntimeSettings(rs);
 
-            await scanner.setModeArgument("BinarizationModes", 0, "BlockSizeX", "30" ); 
-            await scanner.setModeArgument("BinarizationModes", 0, "BlockSizeY", "30" ); 
+            //await scanner.setModeArgument("BinarizationModes", 0, "BlockSizeX", "30" ); 
+            //await scanner.setModeArgument("BinarizationModes", 0, "BlockSizeY", "30" ); 
 
             let ss = await scanner.getScanSettings();
             ss.intervalTime = 100;
